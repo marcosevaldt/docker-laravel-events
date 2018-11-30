@@ -12,16 +12,16 @@
                       <input type="text" value="{{ $event->name }}" class="form-control" disabled="">
                     </div>
                     <div class="form-group">
-                        <label>Quantidade de Ingressos</label>
-                        <input type="number" name="quantidade" id="quantidade" class="form-control" value="0" onclick="calculate();" min="0" max="10">
-                    </div>
-                    <div class="form-group">
                         <label>Valor do Ingresso em R$</label>
                         <input type="text" class="form-control" disabled="" value="{{ $event->value}}" id="unidade">
                     </div>
                     <div class="form-group">
-                        <label>Valor Total</label>
-                        <input type="text" class="form-control" disabled="" id="total">
+                        <label>Selecione a quantidade de Ingressos</label>
+                        <input type="number" name="quantidade" id="quantidade" class="form-control" value="0" onclick="calculate();" min="0" max="10">
+                    </div>
+                    <div class="form-group">
+                        <label>Valor Total em R$</label>
+                        <input type="text" class="form-control" onchange="calculate()" id="total" disabled="">
                     </div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Finalizar Compra</button>
                 </div>
@@ -55,11 +55,14 @@
     <script type="text/javascript">
     function calculate()
     {
-        qtd     = document.getElementById('quantidade');
-        unidade = document.getElementById('unidade');
-        total   = document.getElementById('total');
 
-        total.value = qtd.value * unidade.value;
+        var qtd      = document.getElementById('quantidade');
+        var unidade  = document.getElementById('unidade');
+        var total    = document.getElementById('total');
+        
+        var qtdValue = parseInt(qtd.value) > parseInt(qtd.max) ? 0 : qtd.value;        
+        
+        total.value = qtdValue * unidade.value;
     }
 </script>
 @endsection
