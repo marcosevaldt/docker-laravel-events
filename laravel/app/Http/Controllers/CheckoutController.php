@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class CheckoutController extends Controller
 {
@@ -13,8 +14,9 @@ class CheckoutController extends Controller
      */
     public function index(Request $request)
     {
-        echo '<pre>'.
-        var_dump($request->all());
+        return view('checkout.index', [
+            'event' => Event::find($request->id),
+        ]);
     }
 
     /**
