@@ -25,7 +25,7 @@
                           <td>{{ $event->date->format('d/m/Y') }}</td>
                           <td>{{ $event->date->format('H:i:s') }}</td>
                           <td>
-                              <a href="#" class="btn btn-sm btn-primary">Detalhes</a>
+                              <a href="{{ route('event.show', ['id' => $event->id]) }}" class="btn btn-sm btn-primary">Detalhes</a>
                           </td>
                         </tr>
                         @empty

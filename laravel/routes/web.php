@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/event/show/{id}', 'EventController@show')->name('event.show');
+Route::post('/checkout', 'CheckoutController@index')->name('checkout.index');
