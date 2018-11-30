@@ -1,0 +1,63 @@
+version: '2'
+services:
+    web:
+       container_name: 4all-web
+       hostname: 4all-web
+       build:
+           context: ./
+           dockerfile: ./docker/web.docker
+       volumes:
+           - ./laravel:/var/www
+       links:
+           - app
+    app:
+       container_name: 4all-app
+       hostname: 4all-app
+       build:
+           context: ./
+           dockerfile: ./docker/app.docker
+       environment:
+          - DB_HOST=mysql
+       volumes:
+           - ./laravel:/var/www
+       depends_on:
+             - mysql
+    composer:
+        image: composer:1.6
+        network_mode: host
+        container_name: 4all-composer
+        hostname: 4all-composer
+        user: "${UID}:${UID}"
+        command: install --prefer-dist --optimize-autoloader --ignore-platform-reqs
+        volumes:
+          - ./laravel:/app
+          - ${HOME}:${HOME}
+          - /etc/passwd:/etc/passwd:ro
+          - /etc/group:/etc/group:ro
+    mysql:
+        image: mysql/mysql-server:5.7
+        container_name: 4all-mysql
+        hostname: 4all-mysql
+        environment:
+          - MYSQL_DATABASE=homestead
+          - MYSQL_USER=homestead
+          - MYSQL_PASSWORD=secret
+          - MYSQL_ROOT_PASSWORD=secret
+        volumes:
+          - ./laravel/database/sql/:/docker-entrypoint-initdb.d/
+          - /etc/localtime:/etc/localtime
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin:4.7
+      container_name: 4all-phpmyadmin
+      hostname: 4all-phpmyadmin
+      links: 
+          - mysql
+      environment:
+          - MYSQL_USER=homestead
+          - MYSQL_PASSWORD=secret
+          - MYSQL_ROOT_PASSWORD=secret
+          - PMA_HOST=mysql
+networks:
+  default:
+    external:
+      name: 4all

@@ -1,0 +1,16 @@
+FROM php:7-fpm
+
+WORKDIR /var/www
+
+RUN apt-get update && apt-get install -y libmcrypt-dev mysql-client git zip \
+	&& docker-php-ext-install pdo_mysql
+
+RUN groupadd -g 1000 4all && \
+    useradd -g root -g 4all -u 1000 4all && \
+    mkdir /home/4all && chown -R 4all:4all /home/4all
+
+RUN chown -R 4all:4all /var/www
+
+USER 4all
+
+COPY ./ /var/www
