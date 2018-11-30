@@ -8,14 +8,14 @@
                 <div class="card-header">{{ $event->name }}</div>
                 <div class="card-body">
                     <div class="form-group">
-                        <h5>Nome do Evento</h5>
-                        <p>{{ $event->name }}</p>
-                        <h5>Local de Apresentação</h5>
-                        <p>{{ $event->address }}</p>
-                        <h5>Data</h5>
-                        <p>{{ $event->date->format('d/m/Y') }}</p>
-                        <h5>Horário</h5>
-                        <p>{{ $event->date->format('H:i:s') }}</p>
+                        <label>Nome do Evento</label>
+                        <input type="text" class="form-control" value="{{ $event->name }}" disabled="">
+                        <label>Local de Apresentação</label>
+                        <input type="text" class="form-control" value="{{ $event->address }}" disabled="">
+                        <label>Data</label>
+                        <input type="text" class="form-control" value="{{ $event->date->format('d/m/Y') }}" disabled="">
+                        <label>Horário</label>
+                        <input type="text" class="form-control" value="{{ $event->date->format('H:i:s') }}" disabled="">
                     </div>
                     <form method="POST" action="{{ route('checkout.index') }}">
                         <input type="hidden" name="id" value="{{ $event->id }}">
