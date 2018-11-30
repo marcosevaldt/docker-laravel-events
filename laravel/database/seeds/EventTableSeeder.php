@@ -14,7 +14,7 @@ class EventTableSeeder extends Seeder
     public function run()
     {
 			
-			$ativo   = EventStatus::where('name', '=', 'Ativo')->first();    	
+			$ativo   = EventStatus::where('name', '=', 'Ativo')->first();
     	
     	$event   = new Event;
       $event->insert([
