@@ -12,6 +12,8 @@
                         <input type="text" class="form-control" value="{{ $event->name }}" disabled="">
                         <label>Local de Apresentação</label>
                         <input type="text" class="form-control" value="{{ $event->address }}" disabled="">
+                        <label>Descrição</label>
+                        <textarea class="form-control" disabled="">{{ $event->description }}</textarea>
                         <label>Data</label>
                         <input type="text" class="form-control" value="{{ $event->date->format('d/m/Y') }}" disabled="">
                         <label>Horário</label>
