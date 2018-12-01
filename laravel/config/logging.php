@@ -90,6 +90,12 @@ return [
            'level'   => 'debug',
         ],
 
+        'app' => [
+           'driver' => 'single',
+           'path'   => storage_path('logs/app.log'),
+           'level'   => 'debug',
+        ],
+
         'syslog' => [
             'driver' => 'syslog',
             'level' => 'debug',
