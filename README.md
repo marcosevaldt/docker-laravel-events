@@ -3,10 +3,10 @@
 Para conseguir utilizar esta aplicação, você precisará ter instalado em sua máquina, os requisitos abaixo.
 | Plugin | README |
 | ------ | ------ |
-| Git | https://git-scm.com/downloads |
-| Docker | https://docs.docker.com/install/ |
-| Docker Compose | https://docs.docker.com/compose/install/ |
-| Docker Host Manager | https://github.com/iamluc/docker-hostmanager |
+| Git | https://git-scm.com/downloads[GIT] |
+| Docker | https://docs.docker.com/install[DOCKER] |
+| Docker Compose | https://docs.docker.com/compose/install[DOCKERCOMPOSE] |
+| Docker Host Manager | https://github.com/iamluc/docker-hostmanager[DOCKERHOSTMANAGER] |
 
 Após instalado, baixe este repositório:
 ```sh
