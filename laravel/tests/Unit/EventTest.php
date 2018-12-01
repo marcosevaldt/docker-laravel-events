@@ -30,4 +30,13 @@ class EventTest extends TestCase
    	  ->assertStatus(200)
    	  ->assertViewHas('events');
   }
+
+  public function test_can_buy_event()
+  {
+    $event = factory(Event::class)->create();
+    $this->withoutMiddleware();
+    $this->post(route('checkout.index'), [
+      'id' => $event->id
+    ])->assertStatus(200);
+  }
 }
