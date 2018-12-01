@@ -96,6 +96,12 @@ return [
            'level'   => 'debug',
         ],
 
+        'eloquent' => [
+           'driver' => 'single',
+           'path'   => storage_path('logs/eloquent.log'),
+           'level'   => 'debug',
+        ],
+
         'syslog' => [
             'driver' => 'syslog',
             'level' => 'debug',

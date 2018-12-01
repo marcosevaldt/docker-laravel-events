@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
+use DB;
+use Log;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::defaultStringLength(191);
+         
+        DB::listen(function($query) {
+            Log::stack(['eloquent'])->info(
+                $query->sql,
+                $query->bindings,
+                $query->time
+            );
+        });
     }
 
     /**
