@@ -73,7 +73,18 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    @if( Session::has( 'success' ))
+                        <div class="alert alert-success">{{ Session::get( 'success' ) }}</div>
+                    @elseif( Session::has( 'warning' ))
+                         <div class="alert alert-warning">{{ Session::get( 'warning' ) }}</div>
+                    @endif
+                  </div>
+                </div>
+                @yield('content')
+            </div>
         </main>
     </div>
     @yield('scripts')

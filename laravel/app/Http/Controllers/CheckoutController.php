@@ -26,11 +26,13 @@ class CheckoutController extends Controller
     public function index(Request $request)
     {
         try{
-            $event = Event::find($request->id);
+            
+            $event = Event::findOrFail($request->id);
+        
         } catch(\Exception $e) {
         
             Log::stack(['app'])->error('Erro ao carregar objeto ' . Event::class . ' de id ' . $request->id . ' . Mensagem: ' . $e->getMessage() . ' [' . $request->ip() . ']');
-            return back()->withWarning('Erro ao encontrar evento!');
+            return redirect()->route('home')->withWarning('Erro ao encontrar evento!');
         }
 
         return view('checkout.index', [

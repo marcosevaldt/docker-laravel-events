@@ -29,12 +29,11 @@ class EventController extends Controller
     {
         try{
             
-            $event = Event::find($id);
+            $event = Event::findOrFail($id);
         
         } catch(\Exception $e) {
-        
             Log::stack(['app'])->error('Erro ao carregar objeto ' . Event::class . ' de id ' . $id . ' . Mensagem: ' . $e->getMessage() . ' [' . $request->ip() . ']');
-            return back()->withWarning('Erro ao encontrar evento!');
+            return redirect()->route('home')->withWarning('Erro ao encontrar evento!');
         }
 
         return view('event.show', [
