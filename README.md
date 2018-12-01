@@ -1,5 +1,10 @@
 # 4all - Sistema de Eventos
-### 1. Instalação
+### Sobre
+Sistema de eventos para a prova da 4All.
+
+### Instalação
+Essas instruções farão com que você tenha uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste.
+
 Para conseguir utilizar esta aplicação, você precisará ter instalado em sua máquina, os requisitos abaixo:
 
 | Plugin | README |
@@ -107,3 +112,13 @@ Escolhi usar pela portabilidade, além de ser uma tecnologia em alta no mercado,
 
 #### Por que MySQL?
 O banco de dados relacional MySQL possui uma comunidade forte, seu projeto é open source e com licença comercial caso necessária, já está no mercado a bastante tempo mostrando sua maturidade e também é facilimente instalável em qualquer sistema operacional, além de ter alta compatibilidade com a stack escolhida.
+
+### Licença
+MIT
+Copyright © 2018 Marcos Evaldt Ereno
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
