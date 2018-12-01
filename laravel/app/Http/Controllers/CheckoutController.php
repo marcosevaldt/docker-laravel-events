@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Event;
 use Illuminate\Support\Facades\Log;
+use App\Event;
 
 class CheckoutController extends Controller
 {

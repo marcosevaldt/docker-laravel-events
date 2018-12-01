@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Event;
 
 class HomeController extends Controller
@@ -22,11 +23,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         try{
             
-            $events = Event::active()->get();
+            $events = Event::active()->paginate(5);
         
         } catch(\Exception $e) {
         
