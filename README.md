@@ -1,12 +1,10 @@
 # 4all - Sistema de Eventos
 ### 1. Instalação
 Para conseguir utilizar esta aplicação, você precisará ter instalado em sua máquina, os requisitos abaixo:
+
 | Plugin | README |
 | ------ | ------ |
 | Git | https://git-scm.com/downloads |
-| Docker | https://docs.docker.com/install/ |
-| Docker Compose | https://docs.docker.com/compose/install/ |
-| Docker Host Manager | https://github.com/iamluc/docker-hostmanager |
 
 Após instalado, baixe este repositório:
 ```sh
