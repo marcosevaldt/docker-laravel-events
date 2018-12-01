@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Event;
+use App\User;
 
 class EventTest extends TestCase
 {
@@ -42,16 +43,18 @@ class EventTest extends TestCase
 
   public function test_user_can_see_event_form()
   {
-    $this->withoutMiddleware();
-    $this->get(route('home'))
+    $user = factory(User::class)->make();
+    $this->actingAs($user)
+    ->get(route('home'))
       ->assertSuccessful()
       ->assertViewIs('home');
   }
 
   public function test_user_can_see_event_list_form()
   {
-    $this->withoutMiddleware();
-    $this->get(route('home'))
+    $user = factory(User::class)->make();
+    $this->actingAs($user)
+      ->get(route('home'))
       ->assertSuccessful()
       ->assertViewIs('home');
   }
@@ -59,8 +62,9 @@ class EventTest extends TestCase
   public function test_user_can_see_event_show_form()
   {
     $event = factory(Event::class)->create();
-    $this->withoutMiddleware();
-    $this->get(route('event.show', ['id' => $event->id]))
+    $user = factory(User::class)->make();
+    $this->actingAs($user)
+      ->get(route('event.show', ['id' => $event->id]))
       ->assertSuccessful()
       ->assertViewIs('event.show');
   }
@@ -68,8 +72,9 @@ class EventTest extends TestCase
   public function test_user_can_see_checkout_form()
   {
     $event = factory(Event::class)->create();
-    $this->withoutMiddleware();
-    $this->post(route('checkout.index'), [
+    $user = factory(User::class)->make();
+    $this->actingAs($user)
+      ->post(route('checkout.index'), [
       'id' => $event->id
     ])
       ->assertSuccessful()
