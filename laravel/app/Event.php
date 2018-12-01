@@ -7,7 +7,9 @@ use App\EventStatus;
 
 class Event extends Model
 {
-  protected $dates = ['date'];
+  protected $dates    = ['date'];
+  protected $fillable = ['name', 'address', 'description', 'value', 'status_id', 'date'];
+
 	/**
 	 * Get the status that owns the event.
 	 */
