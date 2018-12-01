@@ -31,11 +31,11 @@ $ docker-compose logs composer
 Mensagem esperada: 4all-composer | Application key set successfully.
 ```
 
-Execute as migrations e seeds do Laravel:
+Execute as migrations e seeders do Laravel:
 ```sh
 docker exec -it 4all-app php artisan migrate --seed
 ```
-Caso não tenha instalado o Docker Host Manager, execute o comando abaixo.
+Caso não tenha iniciado o container do Docker Host Manager, execute o comando abaixo.
 Este container será responsável por automaticamente mapear os ips dos container para um hostname acessível (web.4all, phpmyadmin.4all...)
 ```sh
 docker run -d --name docker-hostmanager --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /etc/hosts:/hosts iamluc/docker-hostmanager
