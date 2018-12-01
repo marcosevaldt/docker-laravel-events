@@ -20,14 +20,14 @@ class EventTest extends TestCase
   {
   	$this->withoutMiddleware();
     $event = factory(Event::class)->create();
-    $this->get(route('event.show', $event->id))->assertStatus(200);
+    $this->get(route('event.show', $event->id))->assertSuccessful();
   }
 
   public function test_can_list_events()
   {
   	$this->withoutMiddleware();
    	$this->get(route('home'))
-   	  ->assertStatus(200)
+   	  ->assertSuccessful()
    	  ->assertViewHas('events');
   }
 
@@ -37,6 +37,42 @@ class EventTest extends TestCase
     $this->withoutMiddleware();
     $this->post(route('checkout.index'), [
       'id' => $event->id
-    ])->assertStatus(200);
+    ])->assertSuccessful();
+  }
+
+  public function test_user_can_see_event_form()
+  {
+    $this->withoutMiddleware();
+    $this->get(route('home'))
+      ->assertSuccessful()
+      ->assertViewIs('home');
+  }
+
+  public function test_user_can_see_event_list_form()
+  {
+    $this->withoutMiddleware();
+    $this->get(route('home'))
+      ->assertSuccessful()
+      ->assertViewIs('home');
+  }
+
+  public function test_user_can_see_event_show_form()
+  {
+    $event = factory(Event::class)->create();
+    $this->withoutMiddleware();
+    $this->get(route('event.show', ['id' => $event->id]))
+      ->assertSuccessful()
+      ->assertViewIs('event.show');
+  }
+
+  public function test_user_can_see_checkout_form()
+  {
+    $event = factory(Event::class)->create();
+    $this->withoutMiddleware();
+    $this->post(route('checkout.index'), [
+      'id' => $event->id
+    ])
+      ->assertSuccessful()
+      ->assertViewIs('checkout.index');
   }
 }
