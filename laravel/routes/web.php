@@ -11,12 +11,10 @@
 |
 */
 
-Auth::routes();
-
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['routelog'])->group(function(){
+	Auth::routes();
+	Route::get('/', function () { return view('welcome'); });
+	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/event/show/{id}', 'EventController@show')->name('event.show');
+	Route::post('/checkout', 'CheckoutController@index')->name('checkout.index');
 });
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/event/show/{id}', 'EventController@show')->name('event.show');
-Route::post('/checkout', 'CheckoutController@index')->name('checkout.index');

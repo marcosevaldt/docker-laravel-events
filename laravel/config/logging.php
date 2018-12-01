@@ -77,6 +77,18 @@ return [
                 'stream' => 'php://stderr',
             ],
         ],
+        
+        'visitantes' => [
+           'driver' => 'single',
+           'path'   => storage_path('logs/visitantes.log'),
+           'level'   => 'debug',
+        ],
+
+        'usuarios' => [
+           'driver' => 'single',
+           'path'   => storage_path('logs/usuarios.log'),
+           'level'   => 'debug',
+        ],
 
         'syslog' => [
             'driver' => 'syslog',
